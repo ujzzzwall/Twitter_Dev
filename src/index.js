@@ -10,11 +10,6 @@ app.listen(PORT,async()=>{
 
     await connect();
     console.log('Mongo db connected')
-
-
-    const repo = new TweetRepository();
-    const tweet = await repo.update('69a1e5e3f42d48cd352bb445',{content : 'Fourth tweet'})
-    console.log(tweet)
-
+    
 
 })
