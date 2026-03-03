@@ -1,7 +1,7 @@
 const Tweet = require('../models/tweet');
 
 class TweetRepository{
-    async create(){
+    async create(data){
         try {
             const tweet = await Tweet.create(data);
             return tweet;
@@ -17,17 +17,10 @@ class TweetRepository{
             console.log(error)
         }
     }
-    async update(tweetId,data){
+    
+    async destroy(id){
          try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId,data,{new : true});
-            return tweet;
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    async destroy(){
-         try {
-            const tweet = await Tweet.findByIdAndDelete(data);
+            const tweet = await Tweet.findByIdAndDelete(id);
             return tweet;
         } catch (error) {
             console.log(error)
