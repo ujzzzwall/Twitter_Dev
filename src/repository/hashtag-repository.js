@@ -47,4 +47,4 @@ class HashtagRepository{
         }
     }
 }
-module.exports = HashtagRepository;
+module.exports = HashtagRepository; 
