@@ -1,10 +1,9 @@
-const express = require('express');
-const connect = require('./config/database')
-const {PORT} = require('./config/serverConfig')
+import express from 'express';
+import {connect} from './config/database.js'
+import serverConfig from './config/serverConfig.js';
+const PORT = serverConfig.PORT;
 const app = express();
-const {TweetRepository,HashtagRepository} = require('./repository/index')
-const TweetService = require('./services/tweet-service')
-
+import TweetService from './services/tweet-service.js'
 app.listen(PORT,async()=>{
     console.log(`server started at port no.${PORT}`)
 
@@ -12,7 +11,7 @@ app.listen(PORT,async()=>{
     console.log('Mongo db connected')
 
     let Service = new TweetService();
-    const tweet = await Service.create({content:'is #tweets working'})
+    const tweet = await Service.create({content:'done with #refactor ?'})
     console.log(tweet)
 })
 
