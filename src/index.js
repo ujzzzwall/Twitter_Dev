@@ -1,18 +1,24 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import {connect} from './config/database.js'
 import serverConfig from './config/serverConfig.js';
+import TweetService from './services/tweet-service.js'
+import ApiRoutes from './routes/index.js'
+
 const PORT = serverConfig.PORT;
 const app = express();
-import TweetService from './services/tweet-service.js'
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.use('/api',ApiRoutes)
+
 app.listen(PORT,async()=>{
     console.log(`server started at port no.${PORT}`)
 
     await connect();
     console.log('Mongo db connected')
 
-    let Service = new TweetService();
-    const tweet = await Service.create({content:'done with #CAPS #REFACTOR ?'})
-    console.log(tweet)
 })
 
 
