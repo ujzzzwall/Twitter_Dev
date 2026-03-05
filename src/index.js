@@ -11,7 +11,7 @@ app.listen(PORT,async()=>{
     console.log('Mongo db connected')
 
     let Service = new TweetService();
-    const tweet = await Service.create({content:'done with #refactor ?'})
+    const tweet = await Service.create({content:'done with #CAPS #REFACTOR ?'})
     console.log(tweet)
 })
 

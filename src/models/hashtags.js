@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const hashtagSchema = new mongoose.Schema({
     title:{
         type: String,
-        requires : true
+        requires : true,
+        unique : true
     },
     tweets: [
         {
