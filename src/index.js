@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import {connect} from './config/database.js'
 import serverConfig from './config/serverConfig.js';
-import TweetService from './services/tweet-service.js'
 import ApiRoutes from './routes/index.js'
 
 const PORT = serverConfig.PORT;
@@ -19,6 +18,7 @@ app.listen(PORT,async()=>{
     await connect();
     console.log('Mongo db connected')
 
+    
 })
 
 

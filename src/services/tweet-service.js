@@ -26,7 +26,7 @@ class TweetService {
 
         let newTags = tags.filter(tag => !TitleOfPresentTags.includes(tag)); 
         newTags = newTags.map(tag => {
-            return {title: tag, tweets : [tweet.id]}
+            return {title: tag, tweets : [tweet.id]}   
         })
 
         await this.hashtagRepository.bulkCreate(newTags); 
